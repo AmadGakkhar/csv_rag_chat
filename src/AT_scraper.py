@@ -26,22 +26,22 @@ user_agents = [
 ]
 # Set up logging
 # log_file_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/Logs/proxy_test_logs.log'
-log_file_path = os.path.join(os.getcwd(), "experiments.log")
-output_file = os.path.join(os.getcwd(), "proxy_test_dealers.csv")
+log_file_path = os.path.join(os.getcwd(), "logs", "experiments.log")
+output_file = os.path.join(os.getcwd(), "temp", "proxy_test_dealers.csv")
 # driver_path = shutil.which("chromedriver")
 driver_path = "/Users/kingcarlos/Downloads/chromedriver_mac64 2/chromedriver"
 
 extension_path = os.path.join(os.getcwd(), "pphgdbgldlmicfdkhondlafkiomnelnk.crx")
 
 
-csv_file = os.path.join(os.getcwd(), "proxy_test_dealers.csv")
+csv_file = os.path.join(os.getcwd(), "temp", "proxy_test_dealers.csv")
 # output_csv_file = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/proxy_test_inventory.csv'
 output_csv_file = os.path.join(
     os.getcwd(), "data", "csv_xlsx", "Autotraders_Inventory.csv"
 )
 # driver_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/chromedriver-mac-x64/chromedriver'
 # log_file_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/Logs/proxy_test_logs_codeblock2.log'
-log_file_path_2 = os.path.join(os.getcwd(), "experiments2.log")
+log_file_path_2 = os.path.join(os.getcwd(), "logs", "experiments2.log")
 
 
 logging.basicConfig(

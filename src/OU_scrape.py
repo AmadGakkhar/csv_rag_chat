@@ -28,10 +28,10 @@ from playwright.async_api import async_playwright
 
 # Define paths
 log_path = os.path.join(os.getcwd(), "logs")
-screenshot_path = os.path.join(os.getcwd(), "screenshots")
+# screenshot_path = os.path.join(os.getcwd(), "screenshots")
 csv_path = os.path.join(os.getcwd(), "data", "csv_xlsx", "Offerup_Inventory.csv")
 os.makedirs(log_path, exist_ok=True)
-os.makedirs(screenshot_path, exist_ok=True)
+# os.makedirs(screenshot_path, exist_ok=True)
 
 # Configure logging
 log_file = os.path.join(log_path, "ou_scraper_log.log")
@@ -172,9 +172,9 @@ async def run(playwright, zip_codes, num_listings):
         # Set ZIP code and navigate to the correct category
         await set_zip_code(page, zip_code)
         await navigate_to_category(page)
-        await page.screenshot(
-            path=os.path.join(screenshot_path, f"before_scraping_{zip_code}.png")
-        )
+        # await page.screenshot(
+        #     path=os.path.join(screenshot_path, f"before_scraping_{zip_code}.png")
+        # )
         logging.info(f"Screenshot taken for {zip_code}")
 
         try:

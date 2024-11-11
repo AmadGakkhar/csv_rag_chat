@@ -180,7 +180,7 @@ def generate_response(
 execution_started = False
 execution_stopped = False
 
-st.title("Chat with CSV/XLSX using SQL Agents")
+st.title("Scrape and Chat")
 
 if "task" not in st.session_state:
     st.session_state.task = None
