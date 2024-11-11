@@ -8,4 +8,11 @@ python-dotenv
 PyYAML
 SQLAlchemy
 openai
+streamlit
+playwright
+
+psutil
+
+selenium
+chromadb
 

@@ -28,13 +28,17 @@ user_agents = [
 # log_file_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/Logs/proxy_test_logs.log'
 log_file_path = os.path.join(os.getcwd(), "experiments.log")
 output_file = os.path.join(os.getcwd(), "proxy_test_dealers.csv")
-driver_path = shutil.which("chromedriver")
+# driver_path = shutil.which("chromedriver")
+driver_path = "/Users/kingcarlos/Downloads/chromedriver_mac64 2/chromedriver"
+
 extension_path = os.path.join(os.getcwd(), "pphgdbgldlmicfdkhondlafkiomnelnk.crx")
 
 
 csv_file = os.path.join(os.getcwd(), "proxy_test_dealers.csv")
 # output_csv_file = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/proxy_test_inventory.csv'
-output_csv_file = os.path.join(os.getcwd(), "experiments.csv")
+output_csv_file = os.path.join(
+    os.getcwd(), "data", "csv_xlsx", "Autotraders_Inventory.csv"
+)
 # driver_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/chromedriver-mac-x64/chromedriver'
 # log_file_path = '/Users/kingcarlos/Imperium/Lead_Generator/Car_Dealerships_LG/Logs/proxy_test_logs_codeblock2.log'
 log_file_path_2 = os.path.join(os.getcwd(), "experiments2.log")
@@ -319,7 +323,7 @@ async def get_vehicle_links(dealer_url, driver_path, max_vehicles=3):
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument(f"user-agent={random.choice(user_agents)}")
     # Load the VPN extension
-    chrome_options.add_extension(extension_path)
+    # chrome_options.add_extension(extension_path)
     service = Service(driver_path)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
@@ -430,10 +434,15 @@ async def extract_vehicle_data(
                 )
 
                 # list_items = driver.find_elements(By.XPATH, '//ul[@data-cmp="listColumns"]/li')
-                vehicle_data = {}
+                # vehicle_data = {}
                 for item in list_items:
-                    # logging.info(f'Here is the Item which i am getting: {item.text}')
-                    print(item.text)
+
+                    if "Exterior" in item.text:
+                        vehicle_data["Exterior Color"] = item.text
+                    elif "Interior" in item.text:
+                        vehicle_data["Interior Color"] = item.text
+
+                    logging.info(f"Here is the Item which i am getting: {item.text}")
 
                 # Extracting the Drive Type
                 # try:
@@ -500,10 +509,10 @@ async def extract_vehicle_data(
                             vehicle_data["Transmission"] = value
                         elif "DRIVE TYPE" in title:
                             vehicle_data["Drive Type"] = value
-                        elif "Exterior" in title:
-                            vehicle_data["Exterior Color"] = value
-                        elif "Interior" in title:
-                            vehicle_data["Interior Color"] = value
+                        # elif "Exterior" in title:
+                        #     vehicle_data["Exterior Color"] = value
+                        # elif "Interior" in title:
+                        #     vehicle_data["Interior Color"] = value
                         # elif "Seats" in v_value:
                         #     vehicle_data["Interior Color"] = v_value
                     except NoSuchElementException:
@@ -629,4 +638,4 @@ async def main(zip):
         )
 
 
-# asyncio.run(main())
+asyncio.run(main())
