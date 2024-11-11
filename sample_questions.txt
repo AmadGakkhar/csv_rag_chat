@@ -1,15 +1,11 @@
-SQL database: (Chinook sql)
-- "How many employees are there"
-- "List the total sales per country. Which country's customers spent the most?"
+How many tables are there. Show Schema
 
+How many entries are there in the facebook Marketplace?
 
-Upload Database (Tatanic dataset)
-"what's the average age of survivors"
-For those who survived in Titanic, were the majority men or women?
+Find me an audi. List all of them
 
-Preprocessed DB:
-- (Cancer)
-    - what is the average single_epithelial_cell_size in cancer data?
-    - what is the average single epithelial cell size in cancer data?
-- (Diabetes)
-    what is the average age for those who were diagnosed with diabete?
+Find me a Black Subaru Outback.
+
+Show me the ads for Irvine, CA
+
+In Autotraders inventory, Check price for all the cars. List the cars with price less than $4,000

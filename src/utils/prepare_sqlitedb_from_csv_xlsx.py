@@ -3,6 +3,7 @@ import pandas as pd
 from utils.load_config import LoadConfig
 import pandas as pd
 from sqlalchemy import create_engine, inspect
+from utils.clean_price import clean_price_column
 
 
 class PrepareSQLFromTabularData:
@@ -41,11 +42,13 @@ class PrepareSQLFromTabularData:
             file_name, file_extension = os.path.splitext(file)
             if file_extension == ".csv":
                 df = pd.read_csv(full_file_path)
+                df = clean_price_column(df)
+
             elif file_extension == ".xlsx":
                 df = pd.read_excel(full_file_path)
             else:
                 raise ValueError("The selected file type is not supported")
-            df.to_sql(file_name, self.engine, index=False)
+            df.to_sql(file_name, self.engine, index=False, if_exists="replace")
         print("==============================")
         print("All csv files are saved into the sql database.")
 
