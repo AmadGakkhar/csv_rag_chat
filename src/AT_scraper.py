@@ -638,4 +638,4 @@ async def main(zip):
         )
 
 
-asyncio.run(main())
+# asyncio.run(main(zip))
