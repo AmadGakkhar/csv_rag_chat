@@ -3,6 +3,7 @@
 ## How to run the Cahtbot
 
 1. Clone the Reporsitory. Run the following command in the terminal.
+        
         git clone https://github.com/AmadGakkhar/csv_rag_chat.git
 
 2. Create a new environment. Install requirements.txt. And activate the environment.
