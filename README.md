@@ -1,6 +1,6 @@
 # csv_rag_chat
 
-## How to run the Cahtbot
+## How to run the Chatbot
 
 1. Clone the Reporsitory. Run the following command in the terminal.
         
