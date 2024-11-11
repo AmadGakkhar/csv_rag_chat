@@ -26,3 +26,7 @@
 6. Run all the scrapers one by one. And at the end click "Create DB Button"
 
 7. Once DB is created, you can use the chatbot to ask questions from your database.
+
+### Chat with Pre-scraped Data
+
+To chat with pre scraped data, put all the csv files in data/csv_xlsx folder. Run the app and Press create db button. And begin chatting.
