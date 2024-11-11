@@ -20,7 +20,7 @@
 
         python -m streamlit run src/app_streamlit.py
 
-5. The app will open up. Click on Delete DB and Remove CSV Files Button.
+5. The app will open up. Click on "Delete DB" and "Remove CSV Files" Button.
 
 6. Run all the scrapers one by one. And at the end click "Create DB Button"
 
