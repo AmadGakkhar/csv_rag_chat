@@ -11,7 +11,7 @@
 3. In the root folcer create a .env file with the following structure.
 
         OPENAI_API_KEY = ""
-
+        MODEL_NAME = ""
         FB_EMAIL = ""
         FB_PASSWORD = ""
 

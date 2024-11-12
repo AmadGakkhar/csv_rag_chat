@@ -41,7 +41,7 @@ class LoadConfig:
         self.persist_directory = app_config["directories"]["persist_directory"]
 
     def load_llm_configs(self, app_config):
-        self.model_name = "gpt-4o"
+        self.model_name = os.getenv("MODEL_NAME")
         self.agent_llm_system_role = app_config["llm_config"]["agent_llm_system_role"]
         self.rag_llm_system_role = app_config["llm_config"]["rag_llm_system_role"]
         self.temperature = app_config["llm_config"]["temperature"]
