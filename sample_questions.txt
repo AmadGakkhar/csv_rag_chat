@@ -9,3 +9,8 @@ Find me a Black Subaru Outback.
 Show me the ads for Irvine, CA
 
 In Autotraders inventory, Check price for all the cars. List the cars with price less than $4,000
+
+Find me an audi. List all of them. Also mention the table each car is from.
+
+Show me the ads for Irvine, CA. Also mention the table each car is from. show all information about selected entries
+

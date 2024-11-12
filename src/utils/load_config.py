@@ -3,7 +3,8 @@ from dotenv import load_dotenv
 import yaml
 from pyprojroot import here
 import shutil
-from openai import AzureOpenAI, OpenAI
+
+# from openai import AzureOpenAI, OpenAI
 from langchain.chat_models import AzureChatOpenAI
 import chromadb
 from langchain.chat_models import ChatOpenAI
@@ -40,26 +41,17 @@ class LoadConfig:
         self.persist_directory = app_config["directories"]["persist_directory"]
 
     def load_llm_configs(self, app_config):
-        self.model_name = os.getenv("gpt_deployment_name")
+        self.model_name = "gpt-4o"
         self.agent_llm_system_role = app_config["llm_config"]["agent_llm_system_role"]
         self.rag_llm_system_role = app_config["llm_config"]["rag_llm_system_role"]
         self.temperature = app_config["llm_config"]["temperature"]
         self.embedding_model_name = os.getenv("embed_deployment_name")
 
     def load_openai_models(self):
-        azure_openai_api_key = os.environ["OPENAI_API_KEY"]
-        azure_openai_endpoint = os.environ["OPENAI_API_BASE"]
-        # This will be used for the GPT and embedding models
-        self.azure_openai_client = AzureOpenAI(
-            api_key=azure_openai_api_key,
-            api_version=os.getenv("OPENAI_API_VERSION"),
-            azure_endpoint=azure_openai_endpoint,
-        )
-        self.langchain_llm = AzureChatOpenAI(
-            openai_api_version=os.getenv("OPENAI_API_VERSION"),
-            azure_deployment=self.model_name,
-            model_name=self.model_name,
-            temperature=self.temperature,
+        openai_api_key = os.environ["OPENAI_API_KEY"]
+        openai.api_key = openai_api_key
+        self.langchain_llm = ChatOpenAI(
+            model=self.model_name, temperature=self.temperature
         )
 
     def load_chroma_client(self):
